@@ -14,11 +14,18 @@ def g():
 
 def get_game(year,month,day,team):
     
-    games = mlbgame.day(year,month,day,home=team)
+    try:
+        games = mlbgame.day(year,month,day,home=team)
+    except:
+        return None,None
+    
     if len(games) > 0:
         return games[0],True
-       
-    games = mlbgame.day(year,month,day,away=team)
+    
+    try:
+        games = mlbgame.day(year,month,day,away=team)
+    except:
+        return None,None
     if len(games) > 0:
         return games[0],False
         
