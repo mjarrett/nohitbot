@@ -164,7 +164,6 @@ def nohit(team='Blue Jays'):
 
 
             if game.game_status == 'FINAL':
-                game,home = get_game(year,month,day,team)
                 data = mlbgame.game.box_score(game.game_id) 
                 hits = get_hits(game,home)
                 if hits == 0:
